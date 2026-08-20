@@ -35,18 +35,43 @@ Sandbox was then confirmed accessible with **command:**
 ```
 **Screenshot:**
 
-
 # Available project list identified:
-Introduction: Project list was done without much issue, and is actually viewable in the IBM cloud website.
+Introduction: Project list was done without much issue, and is actually viewable in the IBM cloud website. All models provided by Naresh(IBM) was available for further analysis and review.
 
 In the terminal it's viewable when logged in with **command:**
 ```
 ibmcloud resource service-instances
 ```
 **Screenshot:**
+![ModelAccess](Image_Evidence/ModelAccess.png)
 
 # IBM Code Engine availability check
-Introduction: This required some work to install, however upon installation it works fine.
+Introduction: IBM code engine availability wasn't available within the project's plugin list and was completely empty. It required running pluigin installations to install IBM code engine to the project, however upon installation, plugin is now available.
+
+In the terminal, I've checked initial availability via **command:**
+```
+ibmcloud plugin list
+ibmcloud resource service-instances
+```
+**Screenshot:**
+![InitialCheckIBMCE](Image_Evidence/InitialIBMCodeEngineCheck.png)
+
+Installed IBM Code Engine via **command:**
+```
+ibmcloud plugin repo-plugins
+ibmcloud plugin install code-engine
+```
+**Screenshot:**
+![InstallIBMCE](Image_Evidence/IBMCodeEngineInstall.png)
+
+Final check for IBM Code Engine is viewing its listed available Projects(Since IBM Code Engine has just been installed, expected result is an empty list with no errors); **command:**
+```
+ibmcloud ce project list
+ibmcloud target -g ce 
+ibmcloud plugin list
+```
+**Screenshot:**
+![InitialCheckIBMCE](Image_Evidence/IBMCodeEngineInstallVerification.png)
 
 # Relevant storage services identified
 Introduction:
