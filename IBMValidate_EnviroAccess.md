@@ -128,34 +128,33 @@ ibmcloud plugin repo-plugins
 # Missing access/blockers documentation
 Introduction: The biggest access problems identified, which has resulted in a delay in the completion of this Developer's assigned task and severe confusion is the lack of access to the project within IBM's watsonx.ai website. This might have been due to the inexperience in working with IBM's architecture, however access has been achieved with the less intuitive MacOS terminal which shows this Developer's access to the project and models, allowing the eventual completion of this task. The main issue though is **listed below:**
 
-Website vs MacOS terminal
-**Screenshot:**
-![WebsiteAccessCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
-**Screenshot:**
-![TerminalAccessCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
+Website vs MacOS Terminal:
+| **watsonx.ai Project List** | **IBM Cloud Project List** | **MacOS Terminal Project List** |
+| --- | --- | --- |
+| ![watsonxAIPL](Image_Evidence/InitialIBMCodeEngineCheck.png)| ![IBMCloudPL](Image_Evidence/InitialIBMCodeEngineCheck.png)| ![MacOSPL](Image_Evidence/InitialIBMCodeEngineCheck.png)|
 
-**Blocker:**
-University watsonx.ai project does not appear in the web UI's
+Blockers Table:
+| **Blockers** | **Impact** | **Screenshot** | **Status[Completed/Incomplete]** |
+| University watsonx.ai project does not appear in the web UI's
 Projects list despite successful API access using the supplied
-Project ID.
-**Screenshot:**
-![RelevantBlockers](Image_Evidence/InitialIBMCodeEngineCheck.png)
+Project ID. | --- | ![RelevantBlockers](Image_Evidence/InitialIBMCodeEngineCheck.png) | Incomplete |
+| Inital terminal login issues with email and password option | --- | ![RelevantImpact](Image_Evidence/InitialIBMCodeEngineCheck.png) | Incomplete |
+| Only I seem to have access to the project? | --- | ![ResolutionAttempt](Image_Evidence/InitialIBMCodeEngineCheck.png) | Incomplete |
 
-**Impact:**
-No impact on programmatic model access. Foundation model discovery
-and inference have been successfully tested through the watsonx.ai
-API.
-**Screenshot:**
-![RelevantImpact](Image_Evidence/InitialIBMCodeEngineCheck.png)
+Project access attempt history logs
+**Tuesday:(18/08/2026)**
+![InitialPermsUndAccessCheck](Image_Evidence/ProjectPermsundAccess.png)
 
-**Status:**
-Web UI project visibility unresolved.
-**Screenshot:**
-![ResolutionAttempt](Image_Evidence/InitialIBMCodeEngineCheck.png)
+**Wednesday:(19/08/2026)**
+![InitialPermsUndAccessCheck](Image_Evidence/ProjectPermsundAccess.png)
 
+**Thursday:(20/08/2026)**
 ![InitialPermsUndAccessCheck](Image_Evidence/ProjectPermsundAccess.png)
 
 **Initial access attempt on Tuesday:**
 
 # ChatGPT logs and AI transparency
-Introduction: This assigned task required the used of AI to debug and problem solve why watsonx.ai couldn't find the models, and identifying all necessary and required terminal commands to complete said task and confirm alignment with task requirements. The link to the AI chatbot is listed **here:** https://chatgpt.com/share/6a8653f0-6664-83ec-8a0a-a6b0f5aa0f16
+Introduction: This assigned task required the used of AI to debug and problem solve why watsonx.ai couldn't find the models, and identifying all necessary and required terminal commands to complete said task and confirm alignment with task requirements. The link to the AI chatbot is listed **here:** [ChatGPTLogs](https://chatgpt.com/share/6a8653f0-6664-83ec-8a0a-a6b0f5aa0f16)
+
+# GitHub .md Format Guide
+[GitHubMDFormatGuide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
