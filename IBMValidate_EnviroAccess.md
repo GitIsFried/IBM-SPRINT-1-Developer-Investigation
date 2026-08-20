@@ -1,5 +1,8 @@
 # Initial findings and notes to Project Manager and Developer 2
-Project Manager()
+Project Manager
+
+**Screenshot:**
+![InformedPMundDev2](Image_Evidence/InformPMundDev2.png)
 
 # IBM TechZone/Sandbox login test
 Introduction: Although IBM TechZone/Sandbox was successfully verified, it took a while to successfully confirm whether IBM cloud access was conducted successfully due to a discrepency with MacOS terminal and watsonx.ai website project catalog. When the terminal was identified to be the best way to access said model catalog, TechZone/Sandbox were able to be conducted through the terminal with little problems.
@@ -74,24 +77,69 @@ ibmcloud plugin list
 ![InitialCheckIBMCE](Image_Evidence/IBMCodeEngineInstallVerification.png)
 
 # Relevant storage services identified
-Introduction:
+Introduction: Initial storage services identified and already installed to the project is the IBM's cloud-object-storage[cos], while other services have been identified but have not been installed yet as the task only specified to identify relevant storage services, however, PM or Dev2 can install them if they choose so.
+
+Check for relevant storage service and inspect it.
+**command:**
+```
+ibmcloud plugin list
+ibmcloud resource search "service_name:cloud-object-storage"
+```
+**Screenshot:**
+![InitialCheckIBMCE](Image_Evidence/InitialIBMCodeEngineCheck.png)
+![InitialRelevantStorageServiceCheck](Image_Evidence/IBMCodeEngineInstallVerification.png)
+
+Highlighting relevant storage services:
+**command:**
+```
+ibmcloud plugin repo-plugins
+ibmcloud resource search "service_name:cloud-object-storage"
+```
+**Screenshot:**
+![HighlightedRelevantStorageServices](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
 # Relevant database options identified
 Introduction:
 
-# Missing access/blockers documentation
-Introduction:
+**command:**
+```
+ibmcloud resource service-instances
+ibmcloud resource search "service_name:databases-for-postgresql"
+ibmcloud resource search "service_name:databases-for-mysql"
+ibmcloud resource search "service_name:cloudantnosqldb"
+```
+**Screenshot:**
+![InitialRelevantDatabaseOptionsCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
-Blocker:
+# Missing access/blockers documentation
+Introduction: The biggest access problems identified, which has resulted in a delay in the completion of this Developer's assigned task and severe confusion is the lack of access to the project within IBM's watsonx.ai website. This might have been due to the inexperience in working with IBM's architecture, however access has been achieved with the less intuitive MacOS terminal which shows this Developer's access to the project and models, allowing the eventual completion of this task. The main issue though is **listed below:**
+
+Website vs MacOS terminal
+**Screenshot:**
+![WebsiteAccessCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
+**Screenshot:**
+![TerminalAccessCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
+
+**Blocker:**
 University watsonx.ai project does not appear in the web UI's
 Projects list despite successful API access using the supplied
 Project ID.
+**Screenshot:**
+![RelevantBlockers](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
-Impact:
+**Impact:**
 No impact on programmatic model access. Foundation model discovery
 and inference have been successfully tested through the watsonx.ai
 API.
+**Screenshot:**
+![RelevantImpact](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
-Status:
+**Status:**
 Web UI project visibility unresolved.
+**Screenshot:**
+![ResolutionAttempt](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
+**Initial access attempt on Tuesday:**
+
+# Missing access/blockers documentation
+Introduction: This assigned task required the used of AI to debug and problem solve why watsonx.ai couldn't find the models, and identifying all necessary and required terminal commands to complete said task and confirm alignment with task requirements. The link to the AI chatbot is listed **here:** 
