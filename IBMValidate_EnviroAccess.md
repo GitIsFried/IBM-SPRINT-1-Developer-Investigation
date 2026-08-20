@@ -77,7 +77,7 @@ ibmcloud plugin list
 ![InitialCheckIBMCE](Image_Evidence/IBMCodeEngineInstallVerification.png)
 
 # Relevant storage services identified
-Introduction: Initial storage services identified and already installed to the project is the IBM's cloud-object-storage[cos], while other services have been identified but have not been installed yet as the task only specified to identify relevant storage services, however, PM or Dev2 can install them if they choose so.
+Introduction: Initial relevant storage services identified and already installed to the project is the IBM's cloud-object-storage[cos], while other services have been identified but have not been installed yet as the task only specified to identify relevant storage services, however, PM or Dev2 can install them if they choose so.
 
 Check for relevant storage service and inspect it.
 **command:**
@@ -87,7 +87,7 @@ ibmcloud resource search "service_name:cloud-object-storage"
 ```
 **Screenshot:**
 ![InitialCheckIBMCE](Image_Evidence/InitialIBMCodeEngineCheck.png)
-![InitialRelevantStorageServiceCheck](Image_Evidence/IBMCodeEngineInstallVerification.png)
+![InitialRelevantStorageServiceCheck](Image_Evidence/IBMCloudStorageCheck.png)
 
 Highlighting relevant storage services:
 **command:**
@@ -96,10 +96,10 @@ ibmcloud plugin repo-plugins
 ibmcloud resource search "service_name:cloud-object-storage"
 ```
 **Screenshot:**
-![HighlightedRelevantStorageServices](Image_Evidence/InitialIBMCodeEngineCheck.png)
+![HighlightedRelevantStorageServices](Image_Evidence/UninstalledStorage.png)
 
 # Relevant database options identified
-Introduction:
+Introduction: No relevant or any database services were installed within the project, however there was one IBM plugin that was available for download. Action to download isn't conducted yet.
 
 **command:**
 ```
@@ -109,7 +109,15 @@ ibmcloud resource search "service_name:databases-for-mysql"
 ibmcloud resource search "service_name:cloudantnosqldb"
 ```
 **Screenshot:**
-![InitialRelevantDatabaseOptionsCheck](Image_Evidence/InitialIBMCodeEngineCheck.png)
+![InitialRelevantDatabaseOptionsCheck](Image_Evidence/DatabaseCheck.png)
+
+Identified uninstalled Database plugins listed below:
+**command:**
+```
+ibmcloud plugin repo-plugins
+```
+**Screenshot:**
+![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledStorage.png)
 
 # Missing access/blockers documentation
 Introduction: The biggest access problems identified, which has resulted in a delay in the completion of this Developer's assigned task and severe confusion is the lack of access to the project within IBM's watsonx.ai website. This might have been due to the inexperience in working with IBM's architecture, however access has been achieved with the less intuitive MacOS terminal which shows this Developer's access to the project and models, allowing the eventual completion of this task. The main issue though is **listed below:**
