@@ -1,8 +1,14 @@
 # Initial findings and notes to Project Manager and Developer 2
-Project Manager
+Introduction: The Project Manager, Dat Nguyen Minh, and the Second Developer, Kai Lek Kum, have been informed at an earlier date due to the lateness of task completion with the teams update post listed below. A more comprehensive update log is listed below the teams chat screenshot.
 
 **Screenshot:**
 ![InformedPMundDev2](Image_Evidence/InformPMundDev2.png)
+
+**Notes to Dat Nguyen Minh[PM]:**
+- 
+
+**Notes to Kai Lek Kum[Dev2]:**
+- 
 
 # IBM TechZone/Sandbox login test
 Introduction: Although IBM TechZone/Sandbox was successfully verified, it took a while to successfully confirm whether IBM cloud access was conducted successfully due to a discrepency with MacOS terminal and watsonx.ai website project catalog. When the terminal was identified to be the best way to access said model catalog, TechZone/Sandbox were able to be conducted through the terminal with little problems.
@@ -147,7 +153,9 @@ Web UI project visibility unresolved.
 **Screenshot:**
 ![ResolutionAttempt](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
+![InitialPermsUndAccessCheck](Image_Evidence/ProjectPermsundAccess.png)
+
 **Initial access attempt on Tuesday:**
 
-# Missing access/blockers documentation
-Introduction: This assigned task required the used of AI to debug and problem solve why watsonx.ai couldn't find the models, and identifying all necessary and required terminal commands to complete said task and confirm alignment with task requirements. The link to the AI chatbot is listed **here:** 
+# ChatGPT logs and AI transparency
+Introduction: This assigned task required the used of AI to debug and problem solve why watsonx.ai couldn't find the models, and identifying all necessary and required terminal commands to complete said task and confirm alignment with task requirements. The link to the AI chatbot is listed **here:** https://chatgpt.com/share/6a8653f0-6664-83ec-8a0a-a6b0f5aa0f16
