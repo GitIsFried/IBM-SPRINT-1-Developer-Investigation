@@ -1,7 +1,5 @@
 # Initial findings and notes to Project Manager and Developer 2
 Introduction: The Project Manager, Dat Nguyen Minh, and the Second Developer, Kai Lek Kum, have been informed at an earlier date due to the lateness of task completion with the teams update post listed below. A more comprehensive update log is listed below the teams chat screenshot.
-
-**Screenshot:**
 ![InformedPMundDev2](Image_Evidence/InformPMundDev2.png)
 
 **Notes to Dat Nguyen Minh[PM]:**
@@ -51,7 +49,6 @@ Initial login test to the given project in watsonx.ai yielded surprising results
 -H "Authorization: Bearer [generated token access]" \
 | jq -r '.resources[].model_id'
 ```
-**Screenshot:**
 ![ModelAccess](Image_Evidence/ModelAccess.png)
 
 The project and following model catalogs are accessible by this user:
@@ -60,21 +57,22 @@ The most surprising aspect upon testing login validation in MacOS terminal was w
 '''
 ibmcloud login
 '''
-**Screenshot:**
 ![LiginTest](Image_Evidence/Login_Problem1.png)
 
 That the password validation failed although this developer has checked multiple times that the inputted password is correct, therefore was forced to attempt login with a one time access token running which was successful; **command:**
 '''
 ibmcloud login --sso
 '''
-**Screenshot:**
 ![LoginTest2](Image_Evidence/Login_Validation.png)
 
 Sandbox was then confirmed accessible with **command:**
 ```
-
+ibmcloud target
+ibmcloud resource groups
+ibmcloud target -g Default
+ibmcloud target
 ```
-**Screenshot:**
+![SandboxValidation](Image_Evidence/IBMvalidateSandbox.png)
 
 # Available project list identified:
 Introduction: Project list was done without much issue, and is actually viewable in the IBM cloud website. All models provided by Naresh(IBM) was available for further analysis and review.
@@ -83,7 +81,6 @@ In the terminal it's viewable when logged in with **command:**
 ```
 ibmcloud resource service-instances
 ```
-**Screenshot:**
 ![ModelAccess](Image_Evidence/ModelAccess.png)
 
 # IBM Code Engine availability check
@@ -94,7 +91,6 @@ In the terminal, I've checked initial availability via **command:**
 ibmcloud plugin list
 ibmcloud resource service-instances
 ```
-**Screenshot:**
 ![InitialCheckIBMCE](Image_Evidence/InitialIBMCodeEngineCheck.png)
 
 Installed IBM Code Engine via **command:**
@@ -102,7 +98,6 @@ Installed IBM Code Engine via **command:**
 ibmcloud plugin repo-plugins
 ibmcloud plugin install code-engine
 ```
-**Screenshot:**
 ![InstallIBMCE](Image_Evidence/IBMCodeEngineInstall.png)
 
 Final check for IBM Code Engine is viewing its listed available Projects(Since IBM Code Engine has just been installed, expected result is an empty list with no errors); **command:**
@@ -111,7 +106,6 @@ ibmcloud ce project list
 ibmcloud target -g ce 
 ibmcloud plugin list
 ```
-**Screenshot:**
 ![InitialCheckIBMCE](Image_Evidence/IBMCodeEngineInstallVerification.png)
 
 # Relevant storage services identified
@@ -123,7 +117,6 @@ Check for relevant storage service and inspect it.
 ibmcloud plugin list
 ibmcloud resource search "service_name:cloud-object-storage"
 ```
-**Screenshot:**
 ![InitialCheckIBMCE](Image_Evidence/InitialIBMCodeEngineCheck.png)
 ![InitialRelevantStorageServiceCheck](Image_Evidence/IBMCloudStorageCheck.png)
 
@@ -146,7 +139,6 @@ ibmcloud resource search "service_name:databases-for-postgresql"
 ibmcloud resource search "service_name:databases-for-mysql"
 ibmcloud resource search "service_name:cloudantnosqldb"
 ```
-**Screenshot:**
 ![InitialRelevantDatabaseOptionsCheck](Image_Evidence/DatabaseCheck.png)
 
 Identified uninstalled Database plugins listed below:
@@ -154,7 +146,8 @@ Identified uninstalled Database plugins listed below:
 ```
 ibmcloud plugin repo-plugins
 ```
-**Screenshot:**
+![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledDatabase.png)
+
 ![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledStorage.png)
 
 # Missing access/blockers documentation
@@ -192,10 +185,8 @@ ibmcloud plugin repo-plugins
 ```
 
 ```
-**Screenshot:**
 ![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledStorage.png)
 - *Verifying if IBM has correctly assigned project and catalog to said email*
-**Screenshot:**
 ![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledStorage.png)
 **command:**
 ```
@@ -207,7 +198,6 @@ ibmcloud plugin repo-plugins
 
 ```
 ![InitialPermsUndAccessCheck](Image_Evidence/ProjectPermsundAccess.png)
-**Screenshot:**
 ![HighlightedRelevantDatabaseServices](Image_Evidence/UninstalledStorage.png)
 - Procastinated a lot but laid the foundations for completion tomorrow
 - Informed PM and Dev2 relevant informations
