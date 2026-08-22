@@ -255,16 +255,101 @@ Based on previously chosen architecture solutions and stakeholder needs, IBM Pos
 # IBM service constrain Investigation
 Based on the document above, this part will only list out the service constraints that we're planning to use:
 ### Virtual Private Server(VPS)
+- Virtual server instances are subject to IBM Cloud CPU, memory and instance quotas.
+- IBM VPC currently provides regional quotas for virtual server resources, meaning the project cannot provision unlimited computing resources without requesting quota increases.
+Individual virtual server instances have maximum CPU and memory configurations, limiting the resources available to a single server.
+- Virtual servers require the development team to manage the operating system, security patches, software dependencies and application environment.
+Scaling across multiple virtual servers requires additional configuration such as instance groups, load balancing and appropriate application architecture.
+- VPC networking has limitations, including restrictions around IPv6 and supported network protocols.
+- Virtual server availability can depend on available capacity within the selected availability zone.
+- Persistent storage is not automatically equivalent to the VM's compute capacity and requires appropriate Block Storage configuration.
+- A single virtual server represents a potential single point of failure, so multiple instances and availability zones may be required for higher availability.
 ### IBM Cloud Object Storage
+- Object Storage is subject to IBM Cloud storage, request and bandwidth quotas.
+- Storage costs increase as the quantity of stored media increases.
+- Data retrieval and network transfer can introduce additional costs depending on the storage configuration and access pattern.
+- Different storage classes have different access and cost characteristics.
+- Archive and Cold Vault storage are unsuitable for media requiring immediate access, as retrieving archived data can introduce significant retrieval delays.
+- Object Storage should not be treated as a traditional filesystem for application execution.
+- Access to objects must be controlled using appropriate IBM Cloud IAM and Object Storage access policies.
+- Large video files require consideration of upload/download performance and network bandwidth.
+- The application must store media metadata and references separately rather than relying on Object Storage as a relational database.
 ### IBM Storage solutions for AI
+- These solutions are primarily designed for AI/ML and high-performance data workloads, rather than general web application file storage.
+- They may provide significantly more performance and capacity than required by the project's current application.
+- The additional performance can result in unnecessary cost and infrastructure complexity.
+- AI-focused storage may introduce additional configuration and infrastructure dependencies.
+- The solution may require specialised AI infrastructure or compatible compute environments to achieve its intended benefits.
+- Using an AI-focused storage solution for ordinary application media such as videos and images would provide limited benefit unless the application introduces significant AI processing workloads.
 ### EDB Postgres
+- EDB Postgres can introduce additional licensing or service costs compared with standard PostgreSQL.
+- Enterprise features may be unnecessary for the project's expected workload.
+- Additional functionality can increase the complexity of database configuration and administration.
+- EDB-specific features may create additional dependencies if the application uses functionality that is not available in standard PostgreSQL.
+- Database resources and configurations remain subject to the limitations of the selected deployment environment.
+- The development team would need to consider backup, security, scaling and recovery requirements.
+- Using EDB Postgres alongside IBM's existing managed PostgreSQL offering could introduce unnecessary duplication.
 
 # Dependencies/Limitations documentation
 Based on the document above, this part will only list out the service constraints that we're planning to use:
 ### Virtual Private Server(VPS)
+- IBM Cloud VPC for virtual networking.
+- Subnets for connecting virtual server instances to the VPC network.
+- Security groups and network ACLs for controlling network traffic.
+- Floating IP addresses where public access is required.
+- Block Storage for persistent storage attached to the virtual server.
+- IAM for authentication and authorisation.
+- Application Load Balancer if multiple virtual servers are used.
+- Auto Scale for VPC if automatic horizontal scaling is required.
+- Appropriate operating-system images and software packages.
+
+The biggest limitation is that the project team is responsible for the operating system and application environment. If the project team fails to apply frequent security updates or correctly configure the server, it could introduce security vulnerabilities. Moreover, a single VPS is a potential single point of failure; and to achieve higher availability, multiple virtual servers across availability zones may be required, which increases cost and infrastructure complexity.
 ### IBM Cloud Object Storage
+- IBM Cloud IAM for access control.
+- Appropriate bucket configuration.
+- Network connectivity between the application and Object Storage.
+- Appropriate storage-class selection.
+- Application authentication and authorisation mechanisms.
+
+The main limitation is that Object Storage is object-based rather than a conventional filesystem. Applications must interact with objects using APIs rather than treating the storage as a normal local disk.
+
+Media access also depends on network connectivity and available bandwidth.
+
+Storage costs can increase as the application's media library grows. In addition, moving large quantities of data into or out of the service may result in additional network or retrieval costs.
+
+Storage classes also impose different access characteristics, meaning frequently accessed videos should not be placed into archival storage.
 ### IBM Storage solutions for AI
+- Compatible AI/ML compute infrastructure.
+- High-performance networking.
+- AI/ML frameworks and workloads.
+- Appropriate IBM Cloud storage and compute services.
+- IAM and access-control configuration.
+
+The major limitation for this project is appropriateness rather than technical capability.
+
+The application currently requires general-purpose media storage rather than specialised AI storage. Using AI-focused storage would increase the number of infrastructure components and potentially increase costs without providing significant benefits.
+
+Therefore, this service is not currently considered a core dependency of the application.
 ### EDB Postgres
+- A compatible compute environment.
+- Persistent storage.
+- Network connectivity.
+- IAM/access-control mechanisms.
+- Database backup and recovery mechanisms.
+- Application database drivers and connection configuration.
+
+If EDB Postgres is deployed directly on the IBM Cloud Virtual Server, the project team would also become responsible for more of the database's:
+
+- Operating system maintenance
+- Database updates
+- Security configuration
+- Backup configuration
+- Monitoring
+- Recovery
+
+The main limitation is that EDB Postgres introduces additional management and potentially additional cost compared with using IBM's managed PostgreSQL service.
+
+For this reason, EDB Postgres is not currently the preferred database solution.
 
 # Recommendations to Project Manager and Developer 2
 **For Dat Nguyen Minh[PM]:**
