@@ -41,6 +41,7 @@ IBM VPS already has many advantages includng:
 The four options available are:
 - IBM Cloud Virtual Servers for VPC
 - IBM Cloud Hyper Protect Virtual Servers
+- IBM Cloud Code Engine
 - IBM Power Systems Virtual Servers
 
 ### IBM Cloud Virtual Servers for VPC
@@ -73,6 +74,11 @@ Solution aims to achieve a runtime container that delivers a confidential comput
 - No support: This solution is depreceated as of 20-02-2026, full support ended 20-02-2027. No new instances can be created.
 - Its replacement is IBM Confidential Computing Container Runtime.
 
+### IBM Code Engine
+#### Description
+#### Advantages
+#### Disadvantages
+
 ### IBM Power Systems Virtual Servers
 #### Description
 Solution provides a family of configurable, multitenant, virtual IBM Power servers with access to other IBM architectures such as watsonx.ai. Maintains high security and performance of IBM Power while modernising at your pace and price point on and off premises.
@@ -92,26 +98,79 @@ As discussed earlier, the Virtual Private Server(VPS) hosting solutions are chos
 # Storage Options Investigation
 
 ## Introduction
+Based on initial investigation, this project will require two storage solutions for "Data and AI" and "meida
 
 ## Storage Options
+The options available are
+- LTO Tape Cartridges
+- IBM cloud Object Storage
+- IBM FlashSystem
 
-## Advantages
+Based on initial findings, it's clear that the only practical solution this team can implement that meets all requirements is IBM Cloud Object Storage. It delivers:
+- High end cyber security
+- Data availability and compliance
+- Multi-zone resuiliency
+- fast data transfer options
+- Optimised for AI
+- Stores media, backups and archives well
+- Built in Role based policies and access permissions protected with encryption key management system
+- Flexible storage teirs mean monthly payment fees only scale to when storage is actually being utilised, theoretical data storage is infinite.
 
-## Disadvantages
+Therefore we'll look at the different tiers that IBM Cloud Object Storage holds. These tier and their advantages and disadvantages are.
+| Teirs | Advantages | Disadvantages |
+| --- | --- | --- |
+| One-Rate | Predictable costs from combining storage, API, egress and retrieval of data without separate charges. Monthly storage rate decreases and API and egress increases by storage volume | Bad if media and data being accessed is unpredictable(for our application most likely) |
+| Smart tier | Built for changing data, stores data without cost over runs,  | --- |
+| Standard | Immediate data availability(streaming media), DevOps, analytics, collaboration and active content repositories with no retrieval charges, minimum object size and minimum duration requirement | --- |
+| Vault | Grade below standard, meant for less active data | Small retrieval charge to read data, meant for data accessed once a month/less, threshold object size of 128KB, storage duration of 30 days |
+| Cold Vault | A grade above archiving, specialises in long-term backup, large dataset preservation | Threshold object size of 256KB, minimum storage duration of 90 days |
+| Archive | Low cost, data transition using archive policies from other tiers and simple API | --- |
+
+There is also a separate storing option specifically for AI under IBM storage. I recommend Deleloper 2(Kai Lek Kum) to investigate it in his own time, but the synapsis is this; It offers:
+- Retrieve data faster: Leverage AI-driven autonomous storage with NVMe performance to deliver data at scale with high throughput, low latency and always-on availability—ensuring fast, intelligent access through deep AI integration.
+- Reduce silos: Consolidate data and workloads across environments with a scalable solution optimized for hyperconverged infrastructure (HCI)—spanning edge, on-premises and cloud while enabling seamless AI integration.
+- Improve collaboration: Enable smarter collaboration with content-aware storage that intelligently manages and shares data and workloads—ensuring the right users have access at the right time while improving efficiency and utilization.
+- Simplify operations: Streamline IT with centralized data and application services on a single, scalable, AI-driven autonomous storage platform that integrates easily with existing environments and modern architectures like HCI.
+- Optimize costs: Minimize data sprawl with a flexible, scalable storage solution that uses AI integration to optimize performance and capacity—supporting growth without overprovisioning.
+- Reduce risk: Strengthen security posture with built-in data resiliency and disaster recovery and advanced ransomware protection, ensuring rapid recovery and continuous business operations.
+
+## Advantages of IBM Cloud Object Storage
+- Central service for AI and data lakes: Provides an ideal low-cost data store for AI workloads, natively integrated with the watsonx portfolio.
+- Immutable data retention: Protect against ransomware and preserve electronic records and data integrity until retention and/or legal requirements are met.
+- Native backup: Back up your data to a protected Backup Vault, secured from deletion or modification.
+- Native geographic resiliency: Protect data within or across established regions, providing immediate data consistency with no replication lag.
+- Data replication: Replicate your object data across customized cloud regions to meet your unique requirements.
+- Fast data transfer: Improve transfer times with natively integrated IBM Aspera® high-speed data transfer
+
+## Disadvantages of IBM Cloud Object Storage
+- High Latency: Slower time-first-byte
+- No In-Place Editing: Cannot perform random writes or modify parts of existing file. Updating said file requires rewriting it backend
+- Consistency Limits: Overwrites and deletions experiency can cause "stale data"
+- Lack of POSIX Compliance: Standard file system semantics aren't supported. These include atomic renames, hard links, native multi-client directory locking.
+- Complex Management: Managing network connection interfaces, resource usage logs and granular access controls are challenging for new admins.
+- Cost Structure: Base and data transfer fees can scale up quickly, need careful infrastructure planning to avoid unexpected expenses.
 
 ## Preferred Storage Direction and Rationale
+It is clear that the best storage architecture to persue is IBM Cloud Object Storage, where Standard tier handles ongoing/recent content being flagged and assessed, Cold Vault tier for content that might be reassessed on a later date and Archive tier for long term storage, under Smart Tier for scalability. Moreover, for our AI agents, we'll utilise IBM Storage solutions for AI.
 
 # Database Options Investigation
+IBM databases allow applications to run with analytics and gnerative AI workloads across the cloud. 
 
 ## Introduction
 
 ## Database Options
+The options available are:
+- IBM Db2
+- Db2 Warehouse
+- EDB Postgres
+- IBM Cloud Databases
 
 ## Advantages
 
 ## Disadvantages
 
 ## Preferred Database Direction and Rationale
+Based on the document above, 
 
 # IBM service constrain Investigation
 
@@ -119,16 +178,34 @@ As discussed earlier, the Virtual Private Server(VPS) hosting solutions are chos
 
 # Recommendations to Project Manager and Developer 2
 
-# Sources
+# Questions for Naresh
 - Hosting Options Investigation
-https://www.ibm.com/think/topics/server-hosting
-https://www.ibm.com/products/cloud/web-hosting
-https://www.ibm.com/solutions/cloud-vps
-https://www.ibm.com/products/virtual-servers 
-https://www.ibm.com/products/confidential-computing-container-runtime
-https://www.ibm.com/products/power-virtual-server
+Are we limited to IBM solutions?
+How important is cyber security?
+What information do you wanna store?
 - Storage Options Investigation
+For media storage is it permanent or only lasts for a few days?
+
 - Database Options Investigation
 - IBM service constrain Investigation
 - Dependencies/Limitations documentation
 - Recommendations to Project Manager and Developer 2
+
+# Sources
+##### Hosting Options Investigation
+- [Source1](https://www.ibm.com/think/topics/server-hosting)
+- [Source2](https://www.ibm.com/products/cloud/web-hosting)
+- [Source3](https://www.ibm.com/solutions/cloud-vps)
+- [Source4](https://www.ibm.com/products/virtual-servers)
+- [Source5](https://www.ibm.com/products/confidential-computing-container-runtime)
+- [Source6](https://www.ibm.com/products/power-virtual-server)
+##### Storage Options Investigation
+- [Source7](https://www.ibm.com/solutions/storage)
+- [Source8](https://www.ibm.com/products/cloud-object-storage)
+- [Source9](https://www.ibm.com/products/cloud-object-storage/storage-classes)
+- [Source10](https://www.ibm.com/solutions/ai-storage)
+https://www.ibm.com/solutions/ai-storage 
+##### Database Options Investigation
+##### IBM service constrain Investigation
+##### Dependencies/Limitations documentation
+##### Recommendations to Project Manager and Developer 2
