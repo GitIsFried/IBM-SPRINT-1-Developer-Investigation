@@ -76,8 +76,18 @@ Solution aims to achieve a runtime container that delivers a confidential comput
 
 ### IBM Code Engine
 #### Description
+Solution is a fully managed, serverless platform that runs containerized applications, batch jobs, and source code without requiring manual infrastructure or cluster management. It abstracts Kubernetes complexity, scales down to zero, and lets you pay only for consumed resource 
 #### Advantages
+- No Infrastructure Management: Automatically handles provisioning, networking, security, and cluster scaling.
+- Scale-to-Zero Pricing: Reduces costs by scaling resources down to zero when inactive and billing only for active usage.
+- Direct Source-to-Container Building: Builds container images automatically straight from raw source code or Git repositories using native buildpacks.
+- Unified Workloads: Combines web apps, long-running processes, event-driven triggers, and batch jobs in one platform.
+- Open Source Foundations: Built on transparent technologies like Kubernetes, Knative, and Istio, reducing vendor lock-in
 #### Disadvantages
+- Ecosystem and Documentation Gaps: Fewer community learning resources, videos, and manuals compared to older serverless giants like AWS Lambda.
+- Platform Complexity for Beginners: Container concepts can still present a steep learning curve for users completely new to cloud-native workflows.
+- Shared Multi-Tenant Constraints: Operates as a shared regional network infrastructure which may not fulfill niche regulatory or strict isolated architecture requirements.
+- Cost at Scale: While cheap for intermittent use, continuous high-traffic operations can become expensive compared to reserved bare-metal or standard cluster pricing.
 
 ### IBM Power Systems Virtual Servers
 #### Description
@@ -98,7 +108,7 @@ As discussed earlier, the Virtual Private Server(VPS) hosting solutions are chos
 # Storage Options Investigation
 
 ## Introduction
-Based on initial investigation, this project will require two storage solutions for "Data and AI" and "meida
+Based on initial investigation, this project will require a very flexible storage solution.
 
 ## Storage Options
 The options available are
@@ -154,9 +164,8 @@ There is also a separate storing option specifically for AI under IBM storage. I
 It is clear that the best storage architecture to persue is IBM Cloud Object Storage, where Standard tier handles ongoing/recent content being flagged and assessed, Cold Vault tier for content that might be reassessed on a later date and Archive tier for long term storage, under Smart Tier for scalability. Moreover, for our AI agents, we'll utilise IBM Storage solutions for AI.
 
 # Database Options Investigation
-IBM databases allow applications to run with analytics and gnerative AI workloads across the cloud. 
-
 ## Introduction
+IBM databases allow applications to run with analytics and gnerative AI workloads across the cloud, even on other cloud services such as Amazon Web Services(AWS), aiming to work on all workloads while maintaining performance and cost efficiency. Works with other IBM architecture such as watsonx.data, optimises price-performance for our use cases.
 
 ## Database Options
 The options available are:
@@ -165,18 +174,56 @@ The options available are:
 - EDB Postgres
 - IBM Cloud Databases
 
-## Advantages
+### IBM Db2
+#### Description
 
-## Disadvantages
+#### Advantages
+
+#### Disadvantages
+
+### Db2 Warehouse
+#### Description
+
+#### Advantages
+
+#### Disadvantages
+
+### EDB Postgres
+#### Description
+
+#### Advantages
+
+#### Disadvantages
+
+### IBM Cloud Databases
+#### Description
+
+#### Advantages
+
+#### Disadvantages
 
 ## Preferred Database Direction and Rationale
-Based on the document above, 
 
 # IBM service constrain Investigation
+Based on the document above, this part will only list out the service constraints that we're planning to use:
+### Virtual Private Server(VPS)
+### IBM Cloud Object Storage
+### IBM Storage solutions for AI
+### PostgreSQL
 
 # Dependencies/Limitations documentation
+Based on the document above, this part will only list out the service constraints that we're planning to use:
+### Virtual Private Server(VPS)
+### IBM Cloud Object Storage
+### IBM Storage solutions for AI
+### PostgreSQL
 
 # Recommendations to Project Manager and Developer 2
+**For Dat Nguyen Minh[PM]:**
+Lol idk.
+
+**For Kai Lek Kum[Dev2]:**
+Investigate further how IBM Storage for Data and AI can be utilised for our architecture and how it should be implemented. Once so, document advantages, disadvantages, and any question you have for Naresh.
 
 # Questions for Naresh
 - Hosting Options Investigation
@@ -198,6 +245,7 @@ For media storage is it permanent or only lasts for a few days?
 - [Source3](https://www.ibm.com/solutions/cloud-vps)
 - [Source4](https://www.ibm.com/products/virtual-servers)
 - [Source5](https://www.ibm.com/products/confidential-computing-container-runtime)
+- https://cloud.ibm.com/docs/codeengine?topic=codeengine-about
 - [Source6](https://www.ibm.com/products/power-virtual-server)
 ##### Storage Options Investigation
 - [Source7](https://www.ibm.com/solutions/storage)
