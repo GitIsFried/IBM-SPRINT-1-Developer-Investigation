@@ -176,47 +176,95 @@ The options available are:
 
 ### IBM Db2
 #### Description
+Solution that provides SQL-based relational database that delivers advanced data management and analytics capabilities for transactional workloads. Designed for transactional, analytical and mission-citical workloads.
 
 #### Advantages
+- Strong performance: Designed for high-performance transactional and analytical workloads.
+- Scalability: Supports scaling for large enterprise workloads.
+- High availability: Provides features for backup, recovery and high-availability deployments.
+- Security: Provides enterprise security and access-control capabilities.
+- IBM ecosystem integration: Integrates well with other IBM services, including watsonx and IBM's data and AI services.
+- Mature technology: Well-established database technology suitable for mission-critical applications.
 
 #### Disadvantages
+- Potentially excessive for the project: The capabilities of Db2 are significantly beyond what is required for a relatively small web application.
+- Higher complexity: Requires more database expertise and administration than simpler alternatives.
+- Cost: Enterprise-oriented features can make Db2 less attractive for a low-cost student/project deployment.
+- Less developer familiarity: PostgreSQL and MySQL are generally more familiar to modern web developers.
+- Potential vendor lock-in: Using Db2-specific functionality can make migration to another database more difficult.
 
 ### Db2 Warehouse
 #### Description
+Data warehouse designed for high-performance, in-database analytics. Runs on a single node for cost-efficiency or on multiple nodes for improved performance. Best used for large-scale applications.
 
 #### Advantages
+- Excellent analytical performance: Designed for complex queries across large datasets.
+- Scalable: Can support large quantities of analytical data.
+IBM ecosystem integration: Can integrate with IBM's data, analytics and AI technologies.
+- Useful for future analytics: Could support advanced reporting or machine-learning workloads if the project grows substantially.
+- Data warehouse capabilities: Better suited than a traditional transactional database for analysing historical data.
 
 #### Disadvantages
+- Not designed as the primary application database: A web application generally requires a transactional database rather than a data warehouse.
+- Overkill: The project's expected data volume and analytical requirements do not justify a dedicated data warehouse.
+- Higher cost and complexity: Introduces additional infrastructure and management requirements.
+- Unnecessary duplication: Using both a transactional database and Db2 Warehouse would create an additional data pipeline that the project does not currently require.
 
 ### EDB Postgres
 #### Description
+An integrated portfolio of databases and tools that extend PostgreSQL for enterprise workloads. Adds additional enterprise capabilities, tools, security features and support.
 
 #### Advantages
+- PostgreSQL compatibility: Uses PostgreSQL technology, providing access to the PostgreSQL ecosystem and SQL functionality.
+- Enterprise features: Provides additional tools and capabilities for enterprise deployments.
+- Scalability: Suitable for larger and more demanding PostgreSQL workloads.
+- Migration support: Can be useful for organisations migrating from proprietary databases to PostgreSQL.
+- Familiar technology: Developers familiar with PostgreSQL can generally work with EDB Postgres.
 
 #### Disadvantages
+- More than the project requires: Enterprise EDB capabilities are unnecessary for a relatively small application.
+- Cost: Enterprise support and additional functionality can increase costs.
+- Additional complexity: Provides capabilities that the development team may not need.
+- Potentially redundant: IBM Cloud already provides managed PostgreSQL through IBM Cloud Databases.
+- Maintenance considerations: Depending on the deployment method, additional administration may still be required.
 
 ### IBM Cloud Databases
 #### Description
+Delivers and maintain ready-to-use, highly available, database instances, allowing developers and IT staff to focus on value added tasks and database software including PostgreSQL, MySQL, MongoDB, Redis and other database offerings, infrastructure operations, database software updates, and backup. IBM Cloud® Database SMEs deliver and maintain ready-to-use, highly available, database instances freeing developer and IT staff time to focus on other priorities.
 
 #### Advantages
+- Low management overhead: IBM manages much of the database infrastructure.
+Easy deployment: Databases can be provisioned through IBM Cloud rather than manually installing and configuring a database server.
+- Scalability: Database resources can be adjusted as application requirements increase.
+Managed backups and recovery: Reduces the amount of database administration required from the development team.
+- High availability options: Supports configurations designed to improve database availability and resilience.
+- PostgreSQL compatibility: Provides access to a mature, widely used open-source relational database.
+- Good application compatibility: PostgreSQL is well suited to web applications containing structured data and relationships.
+Integration with IBM Cloud: Can integrate with the project's IBM Cloud infrastructure and other services.
 
 #### Disadvantages
+- Ongoing service cost: A managed database can cost more than installing a database directly on an existing virtual server.
+Service limitations: Available resources, connections, storage and configurations are subject to IBM's service limits and quotas.
+- Less infrastructure control: IBM manages the underlying database environment, limiting low-level configuration compared with self-hosting.
+- Internet/cloud dependency: Application availability depends on the database service and network connectivity.
+- Potential migration considerations: Although PostgreSQL is open source, IBM-specific deployment and management configurations may need to be considered when migrating to another provider.
 
 ## Preferred Database Direction and Rationale
+Based on previously chosen architecture solutions and stakeholder needs, IBM Postgre and IBM Cloud Databases are the best architectural solutions chosen. EDB Postgres is cyber secure, structured, has built in permissions, PostgreSQL is widely supported by many modern development frameworks and programming languages. IBM Cloud Database is better if running directly on IBM Cloud Virtual Server as it provides a managed database environment.
 
 # IBM service constrain Investigation
 Based on the document above, this part will only list out the service constraints that we're planning to use:
 ### Virtual Private Server(VPS)
 ### IBM Cloud Object Storage
 ### IBM Storage solutions for AI
-### PostgreSQL
+### EDB Postgres
 
 # Dependencies/Limitations documentation
 Based on the document above, this part will only list out the service constraints that we're planning to use:
 ### Virtual Private Server(VPS)
 ### IBM Cloud Object Storage
 ### IBM Storage solutions for AI
-### PostgreSQL
+### EDB Postgres
 
 # Recommendations to Project Manager and Developer 2
 **For Dat Nguyen Minh[PM]:**
@@ -240,20 +288,22 @@ For media storage is it permanent or only lasts for a few days?
 
 # Sources
 ##### Hosting Options Investigation
-- [Source1](https://www.ibm.com/think/topics/server-hosting)
-- [Source2](https://www.ibm.com/products/cloud/web-hosting)
-- [Source3](https://www.ibm.com/solutions/cloud-vps)
-- [Source4](https://www.ibm.com/products/virtual-servers)
-- [Source5](https://www.ibm.com/products/confidential-computing-container-runtime)
-- https://cloud.ibm.com/docs/codeengine?topic=codeengine-about
-- [Source6](https://www.ibm.com/products/power-virtual-server)
+- [1] "IBM, “Server Hosting,” Ibm.com, 13,Oct,2021. [https://www.ibm.com/think/topics/server-hosting](https://www.ibm.com/think/topics/server-hosting) (accessed 22/08/2026)
+- [2] “Cloud web hosting | IBM,” Ibm.com, 25,Sept,2025. [https://www.ibm.com/products/cloud/web-hosting](https://www.ibm.com/products/cloud/web-hosting) (accessed 22/08/2026)
+- [3] “Cloud VPS hosting | IBM,” Ibm.com, 15,July,2025. [https://www.ibm.com/solutions/cloud-vps](https://www.ibm.com/solutions/cloud-vps) (accessed 22/08/2026)
+- [4]
+“IBM Cloud Virtual Server for VPC,” www.ibm.com. [https://www.ibm.com/products/virtual-servers](https://www.ibm.com/products/virtual-servers) (accessed 22/08/2026)
+- [5] “IBM Confidential Computing Container Runtime,” Ibm.com, Feb. 20, 2026. [https://www.ibm.com/products/confidential-computing-container-runtime](https://www.ibm.com/products/confidential-computing-container-runtime) (accessed 22/08/2026)
+- [6] Ibm.com, 2024. [https://cloud.ibm.com/docs/codeengine?topic=codeengine-about](https://cloud.ibm.com/docs/codeengine?topic=codeengine-about) (accessed 22/08/2026) 
+- [7] “IBM Power Virtual Server,” www.ibm.com. [https://www.ibm.com/products/power-virtual-server](https://www.ibm.com/products/power-virtual-server) (accessed 22/08/2026)
 ##### Storage Options Investigation
-- [Source7](https://www.ibm.com/solutions/storage)
-- [Source8](https://www.ibm.com/products/cloud-object-storage)
-- [Source9](https://www.ibm.com/products/cloud-object-storage/storage-classes)
-- [Source10](https://www.ibm.com/solutions/ai-storage)
-https://www.ibm.com/solutions/ai-storage 
+- [8] “Enterprise Data Storage Solutions | IBM,” Ibm.com, 2026. [https://www.ibm.com/solutions/storage](https://www.ibm.com/solutions/storage) (accessed 22/08/2026)
+- [9] “IBM Cloud Object Storage - Overview,” www.ibm.com. [https://www.ibm.com/products/cloud-object-storage](https://www.ibm.com/products/cloud-object-storage) (accessed 22/08/2026)
+- [10] “Flexible storage classes - IBM Cloud Object Storage,” Ibm.com, 2025. [https://www.ibm.com/products/cloud-object-storage/storage-classes](https://www.ibm.com/products/cloud-object-storage/storage-classes) (accessed 22/08/2026)
+- [11] “Artificial Intelligence (AI) Storage Solutions | IBM,” Ibm.com, 2026. [https://www.ibm.com/solutions/ai-storage](https://www.ibm.com/solutions/ai-storage) (accessed 22/08/2026)
 ##### Database Options Investigation
-##### IBM service constrain Investigation
-##### Dependencies/Limitations documentation
-##### Recommendations to Project Manager and Developer 2
+- [12] “Database Solutions | IBM,” Ibm.com, 2023. [https://www.ibm.com/solutions/database](https://www.ibm.com/solutions/database) (accessed 22/08/2026)
+- [13] “Db2 for Linux, UNIX and Windows,” Ibm.com, 09,Jan,2026. [https://www.ibm.com/docs/en/db2/11.5.x?topic=editions-db2-database-product-offerings](https://www.ibm.com/docs/en/db2/11.5.x?topic=editions-db2-database-product-offerings) (accessed 22/08/2026)
+- [14] “IBM Software Hub,” Ibm.com, June 18, 2026. [https://www.ibm.com/docs/en/software-hub/5.4.x?topic=services-data-management](https://www.ibm.com/docs/en/software-hub/5.4.x?topic=services-data-management) (accessed 22/08/2026)
+- [15] “Data Management Software & Solutions | IBM,” Ibm.com, 2025. [https://www.ibm.com/solutions/data-management](https://www.ibm.com/solutions/data-management) (accessed 22/08/2026)
+- [16] “Cloud database solutions | IBM,” Ibm.com, 2025. [https://www.ibm.com/products/cloud-databases](https://www.ibm.com/products/cloud-databases) (accessed 22/08/2026)
