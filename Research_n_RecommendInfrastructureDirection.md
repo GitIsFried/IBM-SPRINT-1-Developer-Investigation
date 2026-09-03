@@ -200,7 +200,7 @@ Data warehouse designed for high-performance, in-database analytics. Runs on a s
 #### Advantages
 - Excellent analytical performance: Designed for complex queries across large datasets.
 - Scalable: Can support large quantities of analytical data.
-IBM ecosystem integration: Can integrate with IBM's data, analytics and AI technologies.
+- IBM ecosystem integration: Can integrate with IBM's data, analytics and AI technologies.
 - Useful for future analytics: Could support advanced reporting or machine-learning workloads if the project grows substantially.
 - Data warehouse capabilities: Better suited than a traditional transactional database for analysing historical data.
 
