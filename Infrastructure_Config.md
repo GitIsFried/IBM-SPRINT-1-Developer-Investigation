@@ -5,25 +5,111 @@ This document investigates whether the IBM Baseline Infrastructure is properly c
 - Is the component configured?
 
 The componenets being tested are:
-- Code Engine Environment
 - Cloud Object Storage
 - EDB Postgres Database
 - Watsonx.ai
 - WML
+- Code Engine Environment
+These will be documented under **Component Configuration and Validation**
 
 The document later will also document: 
 - Service permissions confirmed? [yes / no]
 - Current/new naming and environment conventions? [what / how]
 - Credentials are exposed? [safe / exposed]
+These will be documented under **Explorations and Suggestions / Remidiations**
 
 The document will also report any blockers to the PM to be resolved and whether it is resolved or not will be documented.
 
-# Component Validation
-Each component will have a beginning description on what it's being tested and a summary of the outcome, then followed by a more detailed documentation with screenshot evidence, and any relevant steps on how the validation of the component is conducted.
+# Component Configuration and Validation
+Each component will have a beginning description on what it's being tested and a summary of the outcome, then followed by a more detailed documentation with screenshot evidence, and any relevant steps on how the validation of the component is conducted. We'll mainly explore this through IBM Cloud Console website, to do so, follow these steps:
+| Log into IBM Cloud Console > |  Click **☰** in the left-side menu bar > | Click **Resource List** under **Projects** > | View Resource List Catalog |
+| --- | --- | --- |
+| ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Click_Menu](Image_Evidence_2/IBM_Cloud_NavMenu.png) | ![Click_ResourceList](Image_Evidence_2/IBM_Cloud_ProjectList.png) |
+
+## Cloud Object Storage
+### Summary
+Upon first investigation in IBM Cloud Catalog, we can see that IBM Cloud Object Storage is already present within the system and that the component is easily accessible, however it isn't configured yet.
+### Documentation
+#### Is the component present? 
+| Look for anything named **Cloud Storage** that verifies the environment |
+| --- |
+| ![Verify_Cloud_Storage](Image_Evidence_2/Cloud_Object_Verification.png) |
+
+#### Is the component accessible?
+| Click on **Cloud Object Storage-pv** > | In **Buckets** menu console, click on **ibm-rcs-team2-storage** > | Click Upload > | Upload random file | Confirm upload |
+| --- | --- | --- | --- | --- |
+| ![Click_Object_Storage](Image_Evidence_2/Click_Object_Storage.png) | ![Click_Bucket](Image_Evidence_2/Click_Storage_Bucket.png) | ![Click_Upload](Image_Evidence_2/Upload_Button1.png) | ![Upload_Random_Object](Image_Evidence_2/Upload_Object_Random.png) | ![Verify_Upload](Image_Evidence_2/Object_Lists.png) |
+
+#### Is the component configured?
+Check the following statistics
+| Overview | Object lifecycle | Data management |
+| --- | --- | --- |
+| ![Object_Overview](Image_Evidence_2/Object_Overview.png) | ![Object_Lifecycle](Image_Evidence_2/Object_Lifecycle.png) | ![Object_Data_Management](Image_Evidence_2/Object_DataManagement.png) |
+
+|  Observability | Permissions | Backup policies | 
+| --- | --- | --- |
+| ![Object_Observability](Image_Evidence_2/Object_Observability.png) | ![Object_Permissions](Image_Evidence_2/Object_Perms.png) | ![Object_Backup_Policies](Image_Evidence_2/Object_Policies.png) |
+
+## Watsonx.ai
+### Summary
+### Documentation
+#### Is the component present? 
+| Search up **ai** in the Resource List search function, everything watsonx should appear |
+| --- |
+| ![Confirm_Validate_Watsonx](Image_Evidence_2/Watsonx_Validation.png) |
+
+#### Is the component accessible?
+| Click on the available options and see whether you can insert buckets |
+
+#### Is the component configured?
+| The conponent is not configured |
+
+## WML
+### Summary
+### Documentation
+#### Is the component present? 
+
+#### Is the component accessible?
+
+#### Is the component configured?
 
 ## Code Engine
 
 ### Summary
+When checking for the Code Engine Environment, instead of checking resource catalog, we should check **Containers**
+### Documentation
+#### Is the component present? 
+| Click **Containers** > | **Serverless Projects** > | Look for anything named **Code Engine** that verifies the environment |
+| --- | --- | --- |
+| ![Navigate_Containers](Image_Evidence_2/Containers_Path.png) | ![Serverless_Projects](Image_Evidence_2/Serverless_Button.png) | ![Verify_Code_Engine](Image_Evidence_2/Code_Engine_Validation.png) |
+
+#### Is the component accessible?
+| Click on the existing Code Engine Plugin |
+| --- |
+| ![Verify_Cloud_Storage](Image_Evidence_2/Cloud_Object_Verification.png) |
+
+#### Is the component configured?
+
+# Explorations and Suggestions / Remidiation
+
+## Service Permissions 
+
+## Naming and Environment Conventions?
+Naming conventions are still the "default" from initial creation. They either contain a "Catalog Name" + "Specific Purpose / Service" or a computer created name such as "wml-itz-wxo-[randon strings of letters and numbers]".
+
+I recommend for easier documentation that all services and catalogs be renamed to this standard:
+[Catalog Name] + [Purpose specified in Infrastructure design]
+An example being an IBM Code Engine Daemon Catalog that services the backend of the Auditor's console, which means it handles the input from the Auditor's frontend, that means it'll be named:
+**Code Engine Auditor Backend**
+
+## Credentials Exposed?
+
+## Blocker Reports to Project Manager
+
+## Code Engine
+
+### How to create new Code Engine Environment
+**NOTE: I didn't know what to do initially and believed that Code Engine wasn't configured, so these are the compiled steps to setup a Code Engine bucket.**
 When checking for the Code Engine Environment, the two ways to confirm is in the IBM Cloud Console or IBM Code Engine Console. Upon checking fo
 ### Documentation
 We first check by viewing the IBM Cloud Console, if it exist it should be in Project list:
@@ -55,48 +141,6 @@ To confirm whether IBM COde Engine Environment is setup, we should check IBM Clo
 | Log into IBM Cloud > |  Click **Projects** in the left-side menu bar > | Look for Code Engine |
 | --- | --- | --- |
 | ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Confirm_Click_Projects](Image_Evidence_2/IBM_Cloud_ProjectList.png) | ![Confirm_Validate_Code_Engine](Image_Evidence_2/Cloud_Project_Contents.png) |
-
-## Cloud Object Storage
-### Summary
-### Documentation
-| Log into IBM Cloud > |  Click **☰** in the left-side menu bar > | Click **Resource List** under **Projects** > | View Resource List Catalog | Look for anything named **Cloud Storage** that verifies the environment |
-| --- | --- | --- | --- | --- |
-| ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Click_Menu](Image_Evidence_2/IBM_Cloud_NavMenu.png) | ![Click_ResourceList](Image_Evidence_2/IBM_Cloud_ProjectList.png) | ![View_ResourceList_Catalig](Image_Evidence_2/IBM_Cloud_ResourceList.png) | ![Verify_Cloud_Storage](Image_Evidence_2/Cloud_Object_Verification.png) |
-
-
-## EDB Postgres Database
-### Summary
-### Documentation
-| Log into IBM Cloud > |  Click **☰** in the left-side menu bar > | Click **Resource List** under **Projects** > | View Resource List Catalog | Look for anything named **Cloud Storage** that verify's environment |
-| --- | --- | --- | --- | --- |
-| ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Click_Menu](Image_Evidence_2/IBM_Cloud_ProjectList.png) | ![Click_ResourceList](Image_Evidence_2/Cloud_Project_Contents.png) | ![Verify_Cloud_Storage]() |
-
-
-## Watsonx.ai
-### Summary
-### Documentation
-| Log into IBM Cloud > |  Click **Projects** in the left-side menu bar > | Look for Code Engine |
-| --- | --- | --- |
-| ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Confirm_Click_Projects](Image_Evidence_2/IBM_Cloud_ProjectList.png) | ![Confirm_Validate_Code_Engine](Image_Evidence_2/Cloud_Project_Contents.png) |
-
-
-## WML
-### Summary
-### Documentation
-| Log into IBM Cloud > |  Click **Projects** in the left-side menu bar > | Look for Code Engine |
-| --- | --- | --- |
-| ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Confirm_Click_Projects](Image_Evidence_2/IBM_Cloud_ProjectList.png) | ![Confirm_Validate_Code_Engine](Image_Evidence_2/Cloud_Project_Contents.png) |
-
-
-## Service Permissions 
-
-## Naming and Environment Conventions?
-### Current
-### New
-
-## Credentials Exposed?
-
-## Blocker Reports to Project Manager
 
 # Sources
 - [1] “Cloud database solutions | IBM,” Ibm.com, 2025. [https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started&locale=en ](https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started&locale=en ) (accessed 03/09/2026)
