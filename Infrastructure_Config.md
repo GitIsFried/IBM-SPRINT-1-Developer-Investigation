@@ -6,9 +6,8 @@ This document investigates whether the IBM Baseline Infrastructure is properly c
 
 The componenets being tested are:
 - Cloud Object Storage
-- EDB Postgres Database
-- Watsonx.ai
-- WML
+- Watsonx Artificial Intelligence (watsonx.ai)
+- Watsonx Machine Learning (WML)
 - Code Engine Environment
 These will be documented under **Component Configuration and Validation**
 
@@ -45,7 +44,6 @@ Check the following statistics
 | Overview | Object lifecycle | Data management |
 | --- | --- | --- |
 | ![Object_Overview](Image_Evidence_2/Object_Overview.png) | ![Object_Lifecycle](Image_Evidence_2/Object_Lifecycle.png) | ![Object_Data_Management](Image_Evidence_2/Object_DataManagement.png) |
-
 |  Observability | Permissions | Backup policies | 
 | --- | --- | --- |
 | ![Object_Observability](Image_Evidence_2/Object_Observability.png) | ![Object_Permissions](Image_Evidence_2/Object_Perms.png) | ![Object_Backup_Policies](Image_Evidence_2/Object_Policies.png) |
@@ -54,27 +52,44 @@ Check the following statistics
 ### Summary
 ### Documentation
 #### Is the component present? 
-| Search up **ai** in the Resource List search function, everything watsonx should appear |
+| Search up **ai** in the Resource List search function, everything watsonx.ai relevant should appear |
 | --- |
 | ![Confirm_Validate_Watsonx](Image_Evidence_2/Watsonx_Validation.png) |
 
 #### Is the component accessible?
-| Click on the available options and see whether you can insert buckets |
+| Click on **watson.ai Runtime-xe** > | Check Manage Page > | Check Plan Page |
+| --- | --- | --- |
+| ![Runtime_Click](Image_Evidence_2/Watsonx_JP.png) | ![Runtime_Manage](Image_Evidence_2/Runtime_Manage.png) | ![Runtime_Plan](Image_Evidence_2/Runtime_Plan.png) |
+
+| Click on **watson.ai Studio-jp** > | Check Manage Page > | Check Plan Page |
+| --- | --- | --- |
+| ![jp_Click](Image_Evidence_2/Watsonx_Runtime.png) | ![jp_Manage](Image_Evidence_2/JP_Manage.png) | ![jp_Plan](Image_Evidence_2/JP_Plan.png) |
+
+| Click on **watson.ai Studio.ud** > | Check Manage Page > | Check Plan Page |
+| --- | --- | --- |
+| ![ud_Click](Image_Evidence_2/Watsonx_UD.png) | ![ud_Manage](Image_Evidence_2/UD_Manage.png) | ![ud_Plan](Image_Evidence_2/UD_Plan.png) |
 
 #### Is the component configured?
-| The conponent is not configured |
+There's nothing to config.
 
 ## WML
 ### Summary
 ### Documentation
+
 #### Is the component present? 
+| Search up **wml** in the Resource List search function, everything WML related should appear |
+| --- |
+| ![Confirm_Validate_WML](Image_Evidence_2/WML_Validation.png) |
 
 #### Is the component accessible?
+| Click on **watson.ai Studio.ud** > | Check Manage Page > | Check Plan Page |
+| --- | --- | --- |
+| ![wml_Click](Image_Evidence_2/WML_Click.png) | ![wml_Manage](Image_Evidence_2/WML_Manage.png) | ![wml_Plan](Image_Evidence_2/WML_Plan.png) |
 
 #### Is the component configured?
+There's nothing to config.
 
 ## Code Engine
-
 ### Summary
 When checking for the Code Engine Environment, instead of checking resource catalog, we should check **Containers**
 ### Documentation
@@ -89,6 +104,7 @@ When checking for the Code Engine Environment, instead of checking resource cata
 | ![Verify_Cloud_Storage](Image_Evidence_2/Cloud_Object_Verification.png) |
 
 #### Is the component configured?
+There's nothing to config.
 
 # Explorations and Suggestions / Remidiation
 
