@@ -21,13 +21,13 @@ The document will also report any blockers to the PM to be resolved and whether 
 
 # Component Configuration and Validation
 Each component will have a beginning description on what it's being tested and a summary of the outcome, then followed by a more detailed documentation with screenshot evidence, and any relevant steps on how the validation of the component is conducted. We'll mainly explore this through IBM Cloud Console website, to do so, follow these steps:
-| Log into IBM Cloud Console > |  Click **☰** in the left-side menu bar > | Click **Resource List** under **Projects** > | View Resource List Catalog |
+| Log into IBM Cloud Console > |  Click **☰** in the left-side menu bar > | Click **Resource List** under **Projects** |
 | --- | --- | --- |
 | ![Confirm_Login_IBM_Cloud](Image_Evidence_2/IBM_Cloud_Login.png) | ![Click_Menu](Image_Evidence_2/IBM_Cloud_NavMenu.png) | ![Click_ResourceList](Image_Evidence_2/IBM_Cloud_ProjectList.png) |
 
 ## Cloud Object Storage
 ### Summary
-Upon first investigation in IBM Cloud Catalog, we can see that IBM Cloud Object Storage is already present within the system and that the component is easily accessible, however it isn't configured yet.
+Upon first investigation in IBM Cloud Catalog, we can see that IBM Cloud Object Storage is already present within the system and that the component is easily accessible, however it isn't configured yet for different storage categories, ie. Standard and Archive Teir.
 ### Documentation
 #### Is the component present? 
 | Look for anything named **Cloud Storage** that verifies the environment |
@@ -50,6 +50,7 @@ Check the following statistics
 
 ## Watsonx.ai
 ### Summary
+Upon first inspection, there seems to be plugins relating to the ai, however upon further investigations, they seem to contain only basic management systems and a price sheet.
 ### Documentation
 #### Is the component present? 
 | Search up **ai** in the Resource List search function, everything watsonx.ai relevant should appear |
@@ -70,10 +71,11 @@ Check the following statistics
 | ![ud_Click](Image_Evidence_2/Watsonx_UD.png) | ![ud_Manage](Image_Evidence_2/UD_Manage.png) | ![ud_Plan](Image_Evidence_2/UD_Plan.png) |
 
 #### Is the component configured?
-There's nothing to config.
+The component is not configured at all, a lot of work is needed to get the AI up to specs.
 
-## WML
+## Watsonx Machine Learning
 ### Summary
+Upon first inspection, there seems to be a plugin relating to the machine learning, however upon further investigations and like the ai, they seem to contain only basic management systems and a price sheet.
 ### Documentation
 
 #### Is the component present? 
@@ -87,7 +89,7 @@ There's nothing to config.
 | ![wml_Click](Image_Evidence_2/WML_Click.png) | ![wml_Manage](Image_Evidence_2/WML_Manage.png) | ![wml_Plan](Image_Evidence_2/WML_Plan.png) |
 
 #### Is the component configured?
-There's nothing to config.
+The component is not configured at all, a lot of work is needed to get the WML up to specifications.
 
 ## Code Engine
 ### Summary
@@ -99,30 +101,71 @@ When checking for the Code Engine Environment, instead of checking resource cata
 | ![Navigate_Containers](Image_Evidence_2/Containers_Path.png) | ![Serverless_Projects](Image_Evidence_2/Serverless_Button.png) | ![Verify_Code_Engine](Image_Evidence_2/Code_Engine_Validation.png) |
 
 #### Is the component accessible?
-| Click on the existing Code Engine Plugin |
-| --- |
-| ![Verify_Cloud_Storage](Image_Evidence_2/Cloud_Object_Verification.png) |
+| Click on **ce-itz-wxo-6a7a76ec3dae69a2d9ca20** > | Check Overview > | Check Application > | Check Functions > | Check Jobs > | Check Fleets |
+| --- | --- | --- | --- | --- | --- |
+| ![ce_Click]() | ![ce_Overview]() | ![ce_Application]() | ![ce_Functions]() | ![ce_Jobs]() | ![ce_Fleets]() |
+
+| Check Event subscription > | Check Service bindings > | Check Image builds > | Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
+| --- | --- | --- | --- | --- | --- |
+| ![ce_EventSubs]() | ![ce_ServiceBinds]() | ![ce_ImageBuilds]() | ![ce_DomainMaps]() | ![ce_PersistentData]() | ![ce_SecretsNConfigsMaps]() |
+
+| Click on **web application** > | Check Overview > | Check Application > | Check Functions > | Check Jobs > | Check Fleets |
+| --- | --- | --- | --- | --- | --- |
+| ![web_Click]() | ![web_Overview]() | ![web_Application]() | ![web_Functions]() | ![web_Jobs]() | ![web_Fleets]() |
+
+| Check Event subscription > | Check Service bindings > | Check Image builds > | Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
+| --- | --- | --- | --- | --- | --- |
+| ![web_EventSubs]() | ![web_ServiceBinds]() | ![web_ImageBuilds]() | ![web_DomainMaps]() | ![web_PersistentData]() | ![web_SecretsNConfigsMaps]() |
+
+| Open **Project settings** menu > | Check Intergrations | Check Connectivity
 
 #### Is the component configured?
-There's nothing to config.
+The component is not configured at all, however it is easy to configurate Code Engine for backend heavy lifting.
 
 # Explorations and Suggestions / Remidiation
 
 ## Service Permissions 
+All service permissions have been confirmed
+
+### Screenshot Proofs
 
 ## Naming and Environment Conventions?
 Naming conventions are still the "default" from initial creation. They either contain a "Catalog Name" + "Specific Purpose / Service" or a computer created name such as "wml-itz-wxo-[randon strings of letters and numbers]".
 
 I recommend for easier documentation that all services and catalogs be renamed to this standard:
 [Catalog Name] + [Purpose specified in Infrastructure design]
-An example being an IBM Code Engine Daemon Catalog that services the backend of the Auditor's console, which means it handles the input from the Auditor's frontend, that means it'll be named:
+
+Moreover, many services will be abbreviated as follows:
+| Service | Abbreviation(s) |
+| --- | --- |
+| Cloud Object Storage | Obj_Data |
+| Watsonx Artificial Intelligence (watsonx.ai) | Wat_AI |
+| Watsonx Machine Learning (WML) | Wat_ML |
+| Code Engine | CE |
+| EDB Postgres | EDB_Data |
+
+An example being an IBM Code Engine Daemon Catalog that services the backend of the Auditor's console, which means it handles the input from the Auditor's frontend, that means it'll be named: 
 **Code Engine Auditor Backend**
 
 ## Credentials Exposed?
+All credentials are not exposed.
 
-## Blocker Reports to Project Manager
+### Screenshot Proofs
 
-## Code Engine
+## Blocker Reports to Project Manager (Dat Nguyen Minh)
+No blockers needed to be reported to PM.
+
+### Screenshot Proofs
+
+## Findings Reports to Developer 2 (Kai Lek Kum)
+For works on AI and Text-to-Chat functions I've listed the important Containers / Plugins + what they do + Connections / Relations / Dependencies Mapping with explanation
+| Containers / Plugins | What they Do | Connection map | Why Connection? |
+| --- | --- | --- | --- |
+| --- | --- | --- | --- |
+
+
+
+## Code Engine Setup[ Extra ]
 
 ### How to create new Code Engine Environment
 **NOTE: I didn't know what to do initially and believed that Code Engine wasn't configured, so these are the compiled steps to setup a Code Engine bucket.**
