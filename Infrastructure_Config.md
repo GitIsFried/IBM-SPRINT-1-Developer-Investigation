@@ -103,23 +103,23 @@ When checking for the Code Engine Environment, instead of checking resource cata
 #### Is the component accessible?
 | Click on **ce-itz-wxo-6a7a76ec3dae69a2d9ca20** > | Check Overview > | Check Application |
 | --- | --- | --- |
-| ![ce_Click]() | ![ce_Overview]() | ![ce_Application]() |
+| ![ce_Click](Image_Evidence_2/ce_Click.png) | ![ce_Overview](Image_Evidence_2/ce_Overview.png) | ![ce_Application](Image_Evidence_2/ce_Apps.png) |
 
 | Check Functions > | Check Jobs > | Check Fleets |
 | --- | --- | --- |
-| ![ce_Functions]() | ![ce_Jobs]() | ![ce_Fleets]() |
+| ![ce_Functions](Image_Evidence_2/ce_Func.png) | ![ce_Jobs](Image_Evidence_2/ce_Jobs.png) | ![ce_Fleets](Image_Evidence_2/ce_Fleets.png) |
 
 | Check Event subscription > | Check Service bindings > | Check Image builds |
 | --- | --- | --- |
-| ![ce_EventSubs]() | ![ce_ServiceBinds]() | ![ce_ImageBuilds]() |
+| ![ce_EventSubs](Image_Evidence_2/ce_EventSubs.png) | ![ce_ServiceBinds](Image_Evidence_2/ce_ServiceBinds.png) | ![ce_ImageBuilds](Image_Evidence_2/ce_ImgBuilds.png) |
 
 | Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
 | --- | --- | --- |
-| ![ce_DomainMaps]() | ![ce_PersistentData]() | ![ce_SecretsNConfigsMaps]() |
+| ![ce_DomainMaps](Image_Evidence_2/ce_DomainMaps.png) | ![ce_PersistentData](Image_Evidence_2/ce_PerDataStorage.png) | ![ce_SecretsNConfigsMaps](Image_Evidence_2/ce_SecretsConfigs.png) |
 
 | Open **Project settings** menu > | Check Intergrations | Check Connectivity
 | --- | --- | --- |
-| ![ce_PS]() | ![ce_Integration]() | ![ce_Connectivity]() |
+| ![ce_PS](Image_Evidence_2/web_ProjectSettings.png) | ![ce_Integration](Image_Evidence_2/ce_Integrations.png) | ![ce_ConnectivityOut](Image_Evidence_2/ce_ConnectOut.png) ![ce_ConnectivityIn](Image_Evidence_2/ce_ConnectIn.png) ![ce_ConnectivityNetPlace](Image_Evidence_2/ce_NetworkPlacement.png)|
 
 | Click on **web application** > | Check Overview > | Check Application |
 | --- | --- | --- |
