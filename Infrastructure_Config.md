@@ -101,23 +101,45 @@ When checking for the Code Engine Environment, instead of checking resource cata
 | ![Navigate_Containers](Image_Evidence_2/Containers_Path.png) | ![Serverless_Projects](Image_Evidence_2/Serverless_Button.png) | ![Verify_Code_Engine](Image_Evidence_2/Code_Engine_Validation.png) |
 
 #### Is the component accessible?
-| Click on **ce-itz-wxo-6a7a76ec3dae69a2d9ca20** > | Check Overview > | Check Application > | Check Functions > | Check Jobs > | Check Fleets |
-| --- | --- | --- | --- | --- | --- |
-| ![ce_Click]() | ![ce_Overview]() | ![ce_Application]() | ![ce_Functions]() | ![ce_Jobs]() | ![ce_Fleets]() |
+| Click on **ce-itz-wxo-6a7a76ec3dae69a2d9ca20** > | Check Overview > | Check Application |
+| --- | --- | --- |
+| ![ce_Click]() | ![ce_Overview]() | ![ce_Application]() |
 
-| Check Event subscription > | Check Service bindings > | Check Image builds > | Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
-| --- | --- | --- | --- | --- | --- |
-| ![ce_EventSubs]() | ![ce_ServiceBinds]() | ![ce_ImageBuilds]() | ![ce_DomainMaps]() | ![ce_PersistentData]() | ![ce_SecretsNConfigsMaps]() |
+| Check Functions > | Check Jobs > | Check Fleets |
+| --- | --- | --- |
+| ![ce_Functions]() | ![ce_Jobs]() | ![ce_Fleets]() |
 
-| Click on **web application** > | Check Overview > | Check Application > | Check Functions > | Check Jobs > | Check Fleets |
-| --- | --- | --- | --- | --- | --- |
-| ![web_Click]() | ![web_Overview]() | ![web_Application]() | ![web_Functions]() | ![web_Jobs]() | ![web_Fleets]() |
+| Check Event subscription > | Check Service bindings > | Check Image builds |
+| --- | --- | --- |
+| ![ce_EventSubs]() | ![ce_ServiceBinds]() | ![ce_ImageBuilds]() |
 
-| Check Event subscription > | Check Service bindings > | Check Image builds > | Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
-| --- | --- | --- | --- | --- | --- |
-| ![web_EventSubs]() | ![web_ServiceBinds]() | ![web_ImageBuilds]() | ![web_DomainMaps]() | ![web_PersistentData]() | ![web_SecretsNConfigsMaps]() |
+| Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
+| --- | --- | --- |
+| ![ce_DomainMaps]() | ![ce_PersistentData]() | ![ce_SecretsNConfigsMaps]() |
 
 | Open **Project settings** menu > | Check Intergrations | Check Connectivity
+| --- | --- | --- |
+| ![ce_PS]() | ![ce_Integration]() | ![ce_Connectivity]() |
+
+| Click on **web application** > | Check Overview > | Check Application |
+| --- | --- | --- |
+| ![web_Click](Image_Evidence_2/web_Click.png) | ![web_Overview](Image_Evidence_2/web_Overview.png) | ![web_Application](Image_Evidence_2/web_Apps.png) |
+
+| Check Functions > | Check Jobs > | Check Fleets |
+| --- | --- | --- |
+| ![web_Functions](Image_Evidence_2/web_Func.png) | ![web_Jobs](Image_Evidence_2/web_Jobs.png) | ![web_Fleets](Image_Evidence_2/web_Fleets.png) |
+
+| Check Event subscription > | Check Service bindings > | Check Image builds |
+| --- | --- | --- |
+| ![web_EventSubs](Image_Evidence_2/web_EventSubs.png) | ![web_ServiceBinds](Image_Evidence_2/web_ServiceBinds.png) | ![web_ImageBuilds](Image_Evidence_2/web_ImgBuilds.png) |
+
+| Check Domain mappings > | Check Persistent data stores > | Check Secrets and configmaps |
+| --- | --- | --- |
+| ![web_DomainMaps](Image_Evidence_2/web_DomainMaps.png) | ![web_PersistentData](Image_Evidence_2/web_PerDataStorage.png) | ![web_SecretsNConfigsMaps](Image_Evidence_2/webs_Secrets.png) |
+
+| Open **Project settings** menu > | Check Intergrations > | Check Connectivity
+| --- | --- | --- |
+| ![web_PS](Image_Evidence_2/web_ProjectSettings.png) | ![web_Integration](Image_Evidence_2/web_Integrations.png) | ![web_Connectivity](Image_Evidence_2/web_Connect.png) |
 
 #### Is the component configured?
 The component is not configured at all, however it is easy to configurate Code Engine for backend heavy lifting.
@@ -162,8 +184,6 @@ For works on AI and Text-to-Chat functions I've listed the important Containers 
 | Containers / Plugins | What they Do | Connection map | Why Connection? |
 | --- | --- | --- | --- |
 | --- | --- | --- | --- |
-
-
 
 ## Code Engine Setup[ Extra ]
 
