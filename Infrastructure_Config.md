@@ -149,10 +149,8 @@ The component is not configured at all, however it is easy to configurate Code E
 ## Service Permissions 
 All service permissions have been confirmed
 
-### Screenshot Proofs
-
 ## Naming and Environment Conventions?
-Naming conventions are still the "default" from initial creation. They either contain a "Catalog Name" + "Specific Purpose / Service" or a computer created name such as "wml-itz-wxo-[randon strings of letters and numbers]".
+Naming conventions are still the "default" from initial creation. They either contain a "Catalog Name" + "Specific Purpose / Service" or a computer created name such as "wml-itz-wxo-[randon strings of letters and numbers]". The latter is quite messy, therefore I propose a naming solution for the project.
 
 I recommend for easier documentation that all services and catalogs be renamed to this standard:
 [Catalog Name] + [Purpose specified in Infrastructure design]
@@ -166,24 +164,25 @@ Moreover, many services will be abbreviated as follows:
 | Code Engine | CE |
 | EDB Postgres | EDB_Data |
 
-An example being an IBM Code Engine Daemon Catalog that services the backend of the Auditor's console, which means it handles the input from the Auditor's frontend, that means it'll be named: 
-**Code Engine Auditor Backend**
+An example being an IBM Code Engine Daemon Catalog that services the backend of the Auditor's console, which means it handles the input from the Auditor's frontend, that means it'll be named: **Code Engine Auditor Backend**
 
 ## Credentials Exposed?
-All credentials are not exposed.
+All credentials are not exposed. However, there seems to be no credentials at all. This is probably the default from the stakeholder, and we haven't actually created anything to test, nor anything to really connect IBM services to our project, since the team's project has only been explatory research and documentation based.
 
 ### Screenshot Proofs
+| Click **Manage** then **Access (IAM)** > | Click **API Keys** > | Check > **My IBM Cloud API Keys** | Check **Classic Infrastructure API ...** |
+| --- | --- | --- | --- |
+| ![getTo_APIKeys](Image_Evidence_2/cred_ManageAccess.png) | ![Click_APIKeys](Image_Evidence_2/Click_APIKEys.png) | ![Check_IBMAPIKEYS](Image_Evidence_2/IBM_API.png) | ![Check_CLASSICALIBMKEYS](Image_Evidence_2/Classic_API.png) |
 
 ## Blocker Reports to Project Manager (Dat Nguyen Minh)
-No blockers needed to be reported to PM.
-
-### Screenshot Proofs
+No blockers needed to be reported to PM. Object Storage can readily accept test medium(an image), Code Engine has no hidden information, and Watsonx is fully present.
 
 ## Findings Reports to Developer 2 (Kai Lek Kum)
-For works on AI and Text-to-Chat functions I've listed the important Containers / Plugins + what they do + Connections / Relations / Dependencies Mapping with explanation
-| Containers / Plugins | What they Do | Connection map | Why Connection? |
-| --- | --- | --- | --- |
-| --- | --- | --- | --- |
+For works on AI and Text-to-Chat functions I recommend they themselves explore the containers, especially watsonx related containers as they will be primarily responsible for handling the AI and Machine Learning Training(I suppose based on the task handling from the PM). Furthermore, I recommend that they start to configure these containers starting next week: 
+- watsonx.ai Runtime-xe
+- watsonx.ai Studio-jp
+- watsonx.ai Studio-ud
+- wml-itz-wxo-6a7a76ec3dae69a2d9ca20
 
 ## Code Engine Setup[ Extra ]
 
@@ -223,5 +222,6 @@ To confirm whether IBM COde Engine Environment is setup, we should check IBM Clo
 
 # Sources
 - [1] “Cloud database solutions | IBM,” Ibm.com, 2025. [https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started&locale=en ](https://cloud.ibm.com/docs/codeengine?topic=codeengine-getting-started&locale=en ) (accessed 03/09/2026)
-- [2]https://cloud.ibm.com/docs/codeengine?topic=codeengine-job-plan
-- [3]https://cloud.ibm.com/docs/codeengine?topic=codeengine-plan-build
+- [2] https://cloud.ibm.com/docs/codeengine?topic=codeengine-job-plan  (accessed 03/09/2026)
+- [3] https://cloud.ibm.com/docs/codeengine?topic=codeengine-plan-build  (accessed 03/09/2026)
+- ChatGPTLogs[GPT_Logs](https://chatgpt.com/share/6a9c1891-f364-83ec-80fc-21407b978551)
