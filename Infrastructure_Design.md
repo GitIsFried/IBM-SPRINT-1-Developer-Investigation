@@ -1,5 +1,50 @@
 # Overall Architecture Design
-![Architectural_Design](Image_Evidence_2/IBM_Softure.jpg)
+![Architectural_Design](Image_Evidence_2/IBM_Larp.png)
+
+# Description
+
+## Public Network
+How users such as stakeholders will be able to interact / access the software to either add cases, view cases, edit cases, work on cases, submit / ammend cases and others. The main ways of access for Users, Auditors and Managers are through a computer or a device such as an Iphone, however, users can also interact through a web extension since they'll primary be submiting cases and checking in on the progression of their submitted cases.
+
+## IBM Cloud Virtual Private Cloud(VPC)
+Provides secure, segmented, network environment for application's core infrastructure. The VPC handles critical network isolation with controlled connectivity and necessary applicaiton scalibility via Virtual Server Instances that are responsible for running the application's persistent frontend and core application services.
+
+### Virtual Private Server(s) (VPS)
+Provides persistent infrastructure for core services including frontend, backend, authentication, sign-in, two-factor authentication and role-based access control. VPS handles horizontal scaling and improves availability by instantiating multiple virtual server instances based on stakeholder demand.
+
+## IBM Cloud Provider
+Provides critical cloud infrastructure and services necessary for the application to run smoothly, which includes scalable computing, media storage, database services and processing capabilities.
+
+### IBM Code Engine
+Handles all backend logic such as account systems, AI and TSS processing, and processing user backends. Code Engine can automatically scale processing workloads like VPS, based on demand, which saves on cost and processing power while prioritising running operations.
+
+### IBM Cloud Object Storage
+Handles scalable media storage. Stores the original flagged media and AI processed audio and video data, with human and AI transcripts, timestamps other metadata.
+Stores data in two tier:
+- Standard Tier: Used for cases that have recently been flagged / actively being worked on by auditors, managers and the AI.
+- Archive Tier: Long term storage for cases that are either old / resolved, and aren't expected to be frequently accessed.
+
+### EDB PostgreSQL
+Handles database storage that do not require the more expensive IBM Cloud Object Storage. This includes user information, employee information, case information, permissions, processing status and other application metadata. Has separate databases for isolation between Users, Employees and Cases.
+
+## Secure API / Private Connection
+Hosts secure IBM Cloud environment communications to services located within the Enterprise Network. Communication is protected through a complex mechanism of HTTPS / TLS, authentication and authorisation. Private connectivity is utilised to reduce exposure to the public internet from these sensitive IBM services.
+
+## Enterprise Network
+Provides specialised IBM services for the application's core functions, which are mainly artificial intelligence capabilities used to analyse and process application cases and avoiding costly development and maintainance of AI infrastructure independently.
+
+### AI services
+Provides specialised artificial intelligence capabilities that first analyse submitted cases either automatically through internet searching, or from submitted cases from users. The AI services then outputs a processed, censored video with flagged timestamps, a detailed transcript and case summary for the auditors to review the case while protecting them from harm.
+
+### TTS services
+Provides Text-to-Speech capabilities for converting media audio into text to reduce harm to auditors when reviewing flagged media content.
+
+# Notes to PM and Dev2
+- **Notes to Project Manager(Dat):** Present this architecture solution to the stakeholder for any comments and seek approval, as well as what they want to see in the final Sprint1 report.
+- **Notes to Developer 2(Kai):** Review this architecture solution and scrutinise it for any flaws and missing detail. Cross review AI and STT placements and dependencies, see whether it is integrated into the architecture solution well.
+
+# Defunct Architecture Design
+!![Defunct_Architectural_Design](Image_Evidence_2/IBM_Softure.jpg)
 
 # Description
 
@@ -30,13 +75,13 @@
 - **Case Table:** Where the actual case metadata is stored.
 
 ### IBM Cloud Object Storage
-- **Media Storage Table:** Where the original and AI processed video, associated metadata and AI transcript, summaries, timestamps and others are stored.
+- **Media Storage Table:** Where the original and AI processed video, associated metadata and AI transcript, summaries, timestamps and others are stored. 
 
 ## Architecture Assumptions
 This architecture assumes some general knowledge / familiarity with VPS and IBM Cloud Engine architecture. Moreover, this simplified model assumes that hardware and software networking works 100% and doesn’t label any error pathways. Finally, it assumes that the AI is trained and working at 100% as expected from stakeholder requirements, for video analysis, transcription, timestamps and notes, and stores the relevant data without error. 
 
-
 # Notes to PM and Dev2
 - **Notes to Project Manager(Dat):** Present this architecture solution to the stakeholder for any comments and seek approval, as well as what they want to see in the final Sprint1 report.
 - **Notes to Developer 2(Kai):** Review this architecture solution and scrutinise it for any flaws and missing detail. Cross review AI and STT placements and dependencies, see whether it is integrated into the architecture solution well.
-
+# ChatGPT Logs
+[Chat_GPT_Logs](https://chatgpt.com/share/6a9d095a-5a3c-83ec-a4bb-40ca9ac9ceba)
