@@ -1,5 +1,5 @@
-# Overall Architecture Design
-![Architectural_Design](Image_Evidence_2/IBM_Larp.png)
+# Overall Architecture Design[To use]
+![Architectural_Design](Image_Evidence_2/IBM_Larp2.png)
 
 # Description
 
@@ -43,7 +43,7 @@ Provides Text-to-Speech capabilities for converting media audio into text to red
 - **Notes to Project Manager(Dat):** Present this architecture solution to the stakeholder for any comments and seek approval, as well as what they want to see in the final Sprint1 report.
 - **Notes to Developer 2(Kai):** Review this architecture solution and scrutinise it for any flaws and missing detail. Cross review AI and STT placements and dependencies, see whether it is integrated into the architecture solution well.
 
-# Defunct Architecture Design
+# Defunct Architecture Design[Extra details but not following specified IBM Solution Architecture Diagram format]
 !![Defunct_Architectural_Design](Image_Evidence_2/IBM_Softure.jpg)
 
 # Description
