@@ -32,7 +32,7 @@ In this section we're analysing whether the Software Architecture is compatible 
 The most important stakeholder the MVP is pleasing is the Auditor, and it's main purpose is to demonstrate that AI can assist Auditors in conducting their tasks while keeping the final decisions to a human.
 
 ## Stakeholder Needs: 
-| Stakeholders | MVP Requirement | Implication to Architecture | 
+| Stakeholders | Needs | Implication to Architecture | 
 | --- | --- | --- |
 | Auditors | Can access submitted cases | IBM Code Engine |
 | Auditors | Review AI outputs and ammend them | application, IBM Code Engine |
@@ -60,19 +60,28 @@ Content submission → Case creation → AI video/audio analysis → Structured 
 | Users | Content submission -> Content Received -> Case Created -> CaseID displayed |
 | Managers | Access oversight view -> Review relevant case status -> Review Auditor workload -> Review wellbeing information -> Identify concerns / follow-up |
 
-## Validation Table
-| MVP Requirement | Required Architecture Capability | Current Architecture Component | Validation | Notes |
-| --- | --- | --- | --- | --- |
-
-## Dependencies Table
-| MVP Function | Dependency | Architecture Component | Required Configuration / Access | Status |
-| --- | --- | --- | --- | --- |
-
-
 ## Software Architecture - MVP Inconsistencies and Resolutions
-| Inconsistency | Current Architecture | MVP Requirement | Impact | Resolution |
-| --- | --- | --- | --- | --- |
+Validation Table:
+| Classification | Explanation |
+| --- | --- |
+| Supported | Fully confirmed and tested |
+| Partial | Fully confirmed but not tested |
+| None | Not confirmed nor tested|
 
+| MVP Requirement | Software Architecture Component | Validation | Depencencies | Inconsistency | Resolution |
+| --- | --- | --- | --- | --- | --- |
+| SOS / Panic exposure button | VPC / VPS, Code Engine | Partial | Application | Not explicitly defined within the software design | Include a specific SOS / Panic button component within the software design |
+| Auditors can access case | VPC / VPS, Code Engine | Supported | Application isn't configured and confirmed | Auditor flow isn't clearly defined in the architecture | Clarify auditor's flow within the software architecture diagram |
+| Auditors review AI outputs and ammend them | VPC / VPS, Code Engine | --- | --- | --- | --- |
+| Auditor makes final decision | --- | --- | --- | --- | --- |
+| User submits case(s)[video / audio] | --- | --- | --- | --- | --- |
+| User receives CaseID and progress | --- | --- | --- | --- | --- |
+| Manager tracking auditor exposure | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
+| Manager tracking auditor workload | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
+| Manager tracking auditor wellbeing | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
+| AI video processing | watsonx.ai / WML, Object Storage | Supported | Json innput and storage | Dependencies not accounted for in original design | A translator component in IBM Code Engine to take into account dependency |
+| Audio / STT processing | IBM STT, Object Storage | Supported | Json input and storage | Dependencies not accounted for in original design |  A translator component in IBM Code Engine to take into account dependency |
+| Database storage | Code Engine, EDB Postgre | Partial | Json structure | Underdeveloped, not in Json format | Refine storage related components with stronger sub-components and explanations |
 
 # Developer 2(Kai Lek Kum) Flow Validation
 ## Summary
@@ -84,7 +93,8 @@ In this section we're exploring whether Dev2's AI and STT flow architecture is c
 
 
 ## AI / STT Flow
-![diagram_svg](Image_Evidence_3/diagram.svg)
+Content Input(Video authentication) -> AI / STT Processing(Transcribe, then analyse) -> Structured Result(Json output) -> Backend(Storage)
+
 ## Validation Table
 | Steps | (1) Content Input | (2) AI/STT Processing | (3) Structured Result | (4) Backend |
 | --- | --- | --- | --- | --- |
@@ -93,18 +103,29 @@ In this section we're exploring whether Dev2's AI and STT flow architecture is c
 | Architecture Component(s) | Application/VPS | IBM watsonx.ai, WML, IBM STT | IBM Code Engine | Object Storage, EDB Postgre |
 | Status | Unready | Ready | Ready | Unready | 
 
-## Dependencies Table
-
 ## Software Architecture - AI / STT Flow Inconsistencies and Resolutions
-| Inconsistency | Current Architecture | AI / STT Flow Requirement | Impact | Resolution |
-| --- | --- | --- | --- | --- |
+Validation Table:
+| Classification | Explanation |
+| --- | --- |
+| Supported | Fully confirmed and tested |
+| Partial | Fully confirmed but not tested |
+| None | Not confirmed nor tested |
+
+| AI / STT Flow Requirement | Software Architecture Component | Validation | Depencencies | Inconsistency | Resolution |
+| --- | --- | --- | --- | --- | --- |
+| API Key authentication | .env, IBM MFA and Security App? | Partial | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
+| STT basic authentication | .env | Partial | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
+| AI IAM bearer token | .env, | Supported, doesn't exist yet | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
+| Json output, generated text | watsonx.ai | None | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
+| Transcribe_confidence | IBM STT | None | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
+| Auditor interface | VPC / VPS, Code Engine, Authentication | Supported | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
 
 # Architecture Review
-## Overall Architecture
+## Reviewed Architecture Plan
 
 ## Architectural Assumption
 
-## Architectural Roles and Placement
+## IBM Buckets Role Confirmation
 | Object / Bucket | Role / Placement |
 | --- | --- |
 | Code Engine | |
