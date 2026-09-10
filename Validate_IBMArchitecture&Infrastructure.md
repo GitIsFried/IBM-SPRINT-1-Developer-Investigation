@@ -98,8 +98,8 @@ Validation Table:
 | Transcribe_confidence | IBM STT | None | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
 | Auditor interface | VPC / VPS, Code Engine, Authentication | Supported | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
 
-# Architecture Review
-## Visual Architecture Plan
+# Finalised Architecture Plan
+## Visual Architecture Plan(To use by PM in slides)
 ![IBM_VisualLarp](Image_Evidence_3/IBM_LarpFinalish.png)
 
 ## Architectural Assumption
@@ -117,9 +117,15 @@ Validation Table:
 | Watsonx.ai | Analyses and summarises video content with STT model for speech analysis, identifies timestamps, censors video at timestamps, transcribes, stores video and audio in EDB Database |
 
 # Playback Preparations(To use by PM in slides)
-| Decisions | TBDs | Blockers |
+The chosen design decisions were made to implement MVP and AI / STT flow with mininal cost, ease of implementation and allocation of tasks, while keeping the solution expandable with cloud services such as VPS, and secure with cybersecurity principles implemented.
+
+| Decisions | Why? | Blockers |
 | --- | --- | --- |
-| Separate Users and Auditors + Managers | None | None |
+| Separate Users and Auditors + Managers | Better security, implementing Separation of Privilege | None |
+| VPC and VPS | Better scalability, increase and decrease servers based on region and demand | None |
+| Code Engine Frontend API | Scalability | None |
+| Code Engine Backend API | Scalability | None |
+| EDB PostgresSQL and Object Storage | Saves on resources, only video and audio needs to be stored as an object, EDB handles data that can be represented with a Json format as a dependency identified by Dev2 | None |
 
 # Sources
 [Chatgpt_Logs](https://chatgpt.com/share/6aa21479-abc4-83ec-a835-508a2618795)
