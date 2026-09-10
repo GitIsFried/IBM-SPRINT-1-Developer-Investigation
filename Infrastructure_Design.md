@@ -36,8 +36,8 @@ Provides specialised IBM services for the application's core functions, which ar
 ### AI services
 Provides specialised artificial intelligence capabilities that first analyse submitted cases either automatically through internet searching, or from submitted cases from users. The AI services then outputs a processed, censored video with flagged timestamps, a detailed transcript and case summary for the auditors to review the case while protecting them from harm.
 
-### TTS services
-Provides Text-to-Speech capabilities for converting media audio into text to reduce harm to auditors when reviewing flagged media content.
+### STT services
+Provides Speech-to-Text capabilities for converting media audio into text to reduce harm to auditors when reviewing flagged media content.
 
 # Notes to PM and Dev2
 - **Notes to Project Manager(Dat):** Present this architecture solution to the stakeholder for any comments and seek approval, as well as what they want to see in the final Sprint1 report.
