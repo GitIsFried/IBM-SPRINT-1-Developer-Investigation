@@ -1,25 +1,3 @@
-What to do:
-- Review Architecture and finer details
-- Confirm all assumptions are correct
-- Confirm Code Engine Role
-- Confirm Storage Role
-- Confirm database direction
-- SST placement
-- Watsonx.ai Placement
-
-Check
-- Dev2 flow consistency check
-- Aut/security considerations reviewed: What are the threat? What are the options to counter?
-- Human final decisions represneted?
-- Confirm all environmental dependencies documented?
-
-Prepare for PM
-- Playback architecture visuals: Make a new better, cleaner, more IBM like architectural visual.
-- All evidence shared with PM
-
-Goal:
-Validate that the IBM architecture actually supports the Core MVP and Dev2 AI/STT flow, identify anything missing or inconsistent, document the decisions/blockers, and provide clear evidence for PM playback.
-
 # Minimal Viable Product
 ## Summary
 In this section we're analysing whether the Software Architecture is compatible with the MVP specified from the Business Analyst() and UX Designer(). In depth we're covering:
@@ -72,10 +50,10 @@ Validation Table:
 | --- | --- | --- | --- | --- | --- |
 | SOS / Panic exposure button | VPC / VPS, Code Engine | Partial | Application | Not explicitly defined within the software design | Include a specific SOS / Panic button component within the software design |
 | Auditors can access case | VPC / VPS, Code Engine | Supported | Application isn't configured and confirmed | Auditor flow isn't clearly defined in the architecture | Clarify auditor's flow within the software architecture diagram |
-| Auditors review AI outputs and ammend them | VPC / VPS, Code Engine | --- | --- | --- | --- |
-| Auditor makes final decision | --- | --- | --- | --- | --- |
-| User submits case(s)[video / audio] | --- | --- | --- | --- | --- |
-| User receives CaseID and progress | --- | --- | --- | --- | --- |
+| Auditors review AI outputs and ammend them | VPC / VPS, Code Engine | Partial | None | None | Not necessary |
+| Auditor makes final decision | VPC / VPS, Code Engine, Database Services | Supported | None | None |  Not necessary |
+| User submits case(s)[video / audio] | VPC / VPS, Code Engine, Database Services | Supported | None | None | Not necessary |
+| User receives CaseID and progress | VPC / VPS, Code Engine, Database Services | None | None | None |  Not necessary  |
 | Manager tracking auditor exposure | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
 | Manager tracking auditor workload | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
 | Manager tracking auditor wellbeing | VPC / VPS, Code Engine | None | None | Better showcase of manager flow in Architecture | Include separated rows and columns to showcase manager and other stakeholder flows |
@@ -121,25 +99,27 @@ Validation Table:
 | Auditor interface | VPC / VPS, Code Engine, Authentication | Supported | None | Not shown in Software Architecture | Component added and explained in final software architecture schematics |
 
 # Architecture Review
-## Reviewed Architecture Plan
+## Visual Architecture Plan
+![IBM_VisualLarp](Image_Evidence_3/IBM_LarpFinalish.png)
 
 ## Architectural Assumption
+- Data is stored in Json format specified by the Dev2 documentation
+- Architecture fufills MVP specifications only
+- All blockers are resolved
 
-## IBM Buckets Role Confirmation
+## IBM Technical Stuff
 | Object / Bucket | Role / Placement |
 | --- | --- |
-| Code Engine | |
-| Object Storage | |
-| EDB Database | |
-| STT model | |
-| Watsonx.ai | |
-
-## Network Check
-
-# Security and Access
-
-# Decisions & Dependencies
+| Code Engine | Runs critical backend logic, such as connecting user requests to relevant IBM services such as watsonx.ai |
+| Object Storage | Holds the orignal and ai processed video and audio of cases |
+| EDB Database | Holds all data that can be stored in Json, which means any data that can be represented as a string, float, integer and / or boolean |
+| STT model | Converts case audio into words, identifies languages of harm and censors them, stores them in EDB Database |
+| Watsonx.ai | Analyses and summarises video content with STT model for speech analysis, identifies timestamps, censors video at timestamps, transcribes, stores video and audio in EDB Database |
 
 # Playback Preparations(To use by PM in slides)
+| Decisions | TBDs | Blockers |
+| --- | --- | --- |
+| Separate Users and Auditors + Managers | None | None |
 
 # Sources
+[Chatgpt_Logs](https://chatgpt.com/share/6aa21479-abc4-83ec-a835-508a2618795)
