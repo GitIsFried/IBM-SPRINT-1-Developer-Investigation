@@ -69,4 +69,4 @@ Goal: Finish prototype meeting MVP, debugging and prepare product for showcase i
 - **To the PM(Dat Nguyen Minh):** Save all the API keys for safe keeping, use my suggested sprint planning to define my tasks for next week, below are the tasks I suggest you should organise, but is only a suggestion:
 - **To Dev2(Kai Lek Kum):** Prepare AI and STT outputs to be JsonB, be compatible with C++ Code Engine containers.
 
-https://chatgpt.com/share/6aa4b913-05e8-83ec-bf34-24ccc896d055
+[ChatGPT_Logs](https://chatgpt.com/share/6aa4b913-05e8-83ec-bf34-24ccc896d055)
